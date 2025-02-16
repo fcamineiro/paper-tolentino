@@ -77,10 +77,8 @@ t_test_table <- t_test_results %>%
 t_test_table
 ```
 
-```{r}
-#| echo: false
-```
+## References
 
-```{r}
-#| echo: false
-```
+G. Norman, Likert scales, levels of measurement and the “laws” of statistics, Adv. Heal. Sci. Educ. 15 (2010) 625–632. [https://doi.org/10.1007/s10459-010-9222-y](https://doi.org/10.1007/s10459-010-9222-y){target="_blank"}.
+  
+  
