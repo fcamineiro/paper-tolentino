@@ -18,6 +18,7 @@ source("data_analysis.R")
 
 ```{r}
 #| echo: false
+#| warning: false
 library(gt)
 descriptive_table <- descriptive_summary %>%
   gt() %>%
