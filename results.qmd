@@ -1,0 +1,86 @@
+---
+title: "Data Analysis"
+author: "Fabiano Araujo"
+format: html
+editor: visual
+---
+
+## Introduction
+
+This report starts with descriptive statistics and then presents the results of paired t-tests and repeated measures ANOVA conducted on Likert-scale responses before and after an intervention.
+
+### Descriptive Statistics
+
+```{r message=FALSE, warning=FALSE, include=TRUE}
+#| echo: false
+source("data_analysis.R")
+```
+
+```{r}
+#| echo: false
+library(gt)
+descriptive_table <- descriptive_summary %>%
+  gt() %>%
+  fmt_number(
+    columns = c(mean, sd, variance),
+    decimals = 2
+  ) %>%
+  fmt_number(
+    columns = c(median, min, max),
+    decimals = 0
+  ) %>%
+  cols_label(
+    n = "count",
+    sd = "std dev",
+  )
+
+descriptive_table
+```
+
+### Paired t-tests results
+
+A paired t-test compares the mean scores between the pre-test and post-test for each question.
+
+**Interpreting the t-value:** Magnitude: A larger absolute t-value indicates a greater difference between the means, suggesting a stronger evidence against the null hypothesis (which usually states that there is no difference between the groups).
+
+Sign: The sign of the t-value (positive or negative) indicates the direction of the difference between the means.
+
+```{r}
+#| echo: false
+t_test_table <- t_test_results %>%
+  select(question, t_statistic, degrees_freedom, p_value) %>%
+  gt() %>%
+  tab_header(
+    title = "Paired t-test results",
+  ) %>%
+  fmt_number(
+    columns = c(t_statistic),
+    decimals = 2
+  ) %>%
+  fmt_number(
+    columns = c(p_value),
+    decimals = 4
+  ) %>%
+  fmt_number(
+    columns = c(degrees_freedom),
+    decimals = 0
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", color = "red"),
+    locations = cells_body(
+      columns = c(p_value),
+      rows = p_value < 0.05
+    )
+  )
+
+t_test_table
+```
+
+
+```{r}
+#| echo: false
+```
+
+```{r}
+#| echo: false
+```
