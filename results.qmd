@@ -76,7 +76,6 @@ t_test_table <- t_test_results %>%
 t_test_table
 ```
 
-
 ```{r}
 #| echo: false
 ```
