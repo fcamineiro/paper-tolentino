@@ -5,7 +5,6 @@
 # Session Data files
 .RData
 .RDataTmp
-<<<<<<< HEAD
 
 # User-specific files
 .Ruserdata
@@ -48,8 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-=======
->>>>>>> 849a50f (Initial commit)
 
 # User-specific files
 .Ruserdata
